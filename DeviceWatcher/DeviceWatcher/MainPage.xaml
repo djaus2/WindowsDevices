@@ -8,6 +8,17 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0">
+        <!-- StackPanel Grid.Column="1" Margin="0,10,30,0" >
+            <Button Content="User Name" VerticalAlignment="Top" Click="Button_Click_1" />
+            <Popup IsLightDismissEnabled="True" Name="buttonDropDown">
+                <StackPanel Background="DarkGray"  Width="105">
+                    <Button BorderThickness="0" Content="Option1" HorizontalAlignment="Stretch" Click="Button_Click_1" />
+                    <Button BorderThickness="0" Content="Option2" HorizontalAlignment="Stretch" Click="Button_Click_1"/>
+                    <Button BorderThickness="0" Content="Option3" HorizontalAlignment="Stretch" Click="Button_Click_1" />
+                </StackPanel>
+            </Popup -->
+
+
         <TextBox x:Name="OutputText" HorizontalAlignment="Left" Height="43" Margin="401,19,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="387"/>
         <ListBox x:Name="DeviceInterfacesOutputList"    ItemsSource="{Binding}"
                  ScrollViewer.IsVerticalRailEnabled="True" 
@@ -35,34 +46,56 @@
         </ListBox>
 
         <Button x:Name="btnWatchDevices" Content="Start" HorizontalAlignment="Left" Height="43" Margin="68,19,0,0" VerticalAlignment="Top" Width="127" Click="WatchDevices_Click"/>
-        <CheckBox x:Name="ShowHidden" Content="Show hidden" HorizontalAlignment="Left" Height="29" Margin="91,68,0,0" VerticalAlignment="Top" Width="230"/>
+        <CheckBox x:Name="ShowHidden" Content="Show hidden" HorizontalAlignment="Left" Height="29" Margin="91,66,0,0" VerticalAlignment="Top" Width="230"/>
         <Button x:Name="btnStop" Content="Stop" HorizontalAlignment="Left" Height="43" Margin="223,19,0,0" VerticalAlignment="Top" Width="136" Click="StopWatcher"/>
-        <TextBox x:Name="tbFilter" HorizontalAlignment="Left" Height="32" Margin="304,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109"/>
+        <TextBox x:Name="tbFilter" HorizontalAlignment="Left" Height="32" Margin="304,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="99"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="27" Margin="17,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="78">
         	<Run Text="F"/>
         	<Run Text="ILTERS"/>
         	<Run Text=":"/>
         </TextBlock>
-        <TextBox x:Name="tbIgnore" HorizontalAlignment="Left" Height="32" Margin="521,78,0,0" TextWrapping="Wrap" Text="DESKTOP" VerticalAlignment="Top" Width="104"/>
-        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Height="65" Margin="432,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89">
+        <TextBox x:Name="tbIgnore" HorizontalAlignment="Left" Height="32" Margin="535,78,0,0" TextWrapping="Wrap" Text="DESKTOP" VerticalAlignment="Top" Width="104"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Height="44" Margin="424,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="121">
         	<Run Text="Exclude if "/>
         	<Run Text="name "/>
-        	<Run Text="begins with:"/>
+        	<Run Text="begins "/>
+        	<Run Text="with:"/>
         </TextBlock>
-        <TextBlock x:Name="tblLatest"  HorizontalAlignment="Left" Height="80" Margin="15,151,0,0" TextWrapping="Wrap" Text="Select list item for details." VerticalAlignment="Top" Foreground="Blue"/>
-        <CheckBox x:Name="OnlyUSB" Content="USB" HorizontalAlignment="Left" Margin="91,94,0,0" VerticalAlignment="Top" Width="84"/>
+        <TextBlock x:Name="tblLatest"  HorizontalAlignment="Left" Height="80" Margin="15,165,0,0" TextWrapping="Wrap" Text="Select list item for details." VerticalAlignment="Top" Foreground="Blue"/>
+        <CheckBox x:Name="OnlyUSB" Content="USB or:" HorizontalAlignment="Left" Margin="91,92,0,0" VerticalAlignment="Top" Width="84"/>
         <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Height="42" Margin="234,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="65">
         	<Run Text="Name "/>
         	<Run Text="Includes:"/>
         </TextBlock>
         <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Height="27" Margin="657,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="103">
-        	<Run Text="ID "/>
+        	<Run Text="I"/>
+        	<Run Text="d"/>
+        	<Run Text=" "/>
         	<Run Text="Includes:"/>
         </TextBlock>
         <TextBox x:Name="tbIDIncludes" HorizontalAlignment="Left" Height="32" Margin="745,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130"/>
         <Grid HorizontalAlignment="Left" Margin="10,189,0,0" VerticalAlignment="Top"/>
-        <Grid HorizontalAlignment="Left" Height="79" Margin="10,67,0,0" VerticalAlignment="Top" CornerRadius="10" BorderThickness="1" BorderBrush="Black" Width="878"/>
-        <CheckBox x:Name="chkSortOnName" Content="Sort on Name" HorizontalAlignment="Left" Height="21" Margin="690,114,0,0" VerticalAlignment="Top" Width="185"/>
+        <Grid HorizontalAlignment="Left" Height="97" Margin="15,70,0,0" VerticalAlignment="Top" CornerRadius="10" BorderThickness="1" BorderBrush="Black" Width="878">
+            <FlyoutBase.AttachedFlyout>
+                <MenuFlyout/>
+            </FlyoutBase.AttachedFlyout>
+            <ComboBox x:Name="cbDevType" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="27" Margin="153,56,0,0" VerticalAlignment="Top" Width="134" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Width="Auto" Height="Auto">
+                            <TextBlock Text="{Binding }" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock x:Name="tbCount" HorizontalAlignment="Left" Height="22" Margin="391,58,0,0" TextWrapping="Wrap" Text="Count" VerticalAlignment="Top" Width="91"/>
+            <TextBlock x:Name="tbCount_Copy" HorizontalAlignment="Left" Height="22" Margin="338,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61">
+            	<Run Text="Count"/>
+            	<Run Text=":"/>
+            </TextBlock>
+        </Grid>
+        <CheckBox x:Name="chkSortOnName" Content="Sort on Name" HorizontalAlignment="Left" Height="21" Margin="690,123,0,0" VerticalAlignment="Top" Width="185"/>
+        <CheckBox x:Name="cbSelect" Content="Select:" HorizontalAlignment="Left" Margin="91,124,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>
