@@ -1,0 +1,64 @@
+﻿<Page
+    x:Class="HIDSample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HIDSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid 
+        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" ManipulationMode="None">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="NotifyUser" Grid.Row="0" HorizontalAlignment="Left" Height="46" Margin="183,21,0,0" TextWrapping="Wrap" Text="Response" VerticalAlignment="Top" Width="376"/>
+        <Grid Margin="0,57,0,10" Grid.RowSpan="2">
+            <ComboBox x:Name="cbDevType" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="47" Margin="493,33,0,0" VerticalAlignment="Top" Width="134" SelectionChanged="cbDevType_SelectionChanged" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Width="Auto" Height="Auto">
+                            <TextBlock Text="{Binding UsageName}" />
+                            <TextBlock Text="{Binding PageID}" Visibility="Collapsed"/>
+                            <TextBlock Text="{Binding UsageID}" Visibility="Collapsed" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button x:Name="btnSetMSArcMouse" Content="Set Microsoft Arc Mouse" HorizontalAlignment="Left" Height="48" Margin="23,62,0,0" VerticalAlignment="Top" Width="208" Click="btnSetMSArcMouse_Click" Grid.Row="1"/>
+            <Button x:Name="btnSetHPPB450G_Keyboard" Content="Set Keyboard" HorizontalAlignment="Left" Height="47" Margin="23,10,0,0" VerticalAlignment="Top" Width="208" Click="btnSetHPPB450G_Keyboard_Click" Grid.Row="1"/>
+            <TextBlock x:Name="NotifyUser_Copy" HorizontalAlignment="Left" Height="32" Margin="66,133,0,0" TextWrapping="Wrap" Text="VID" VerticalAlignment="Top" Width="87" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" ManipulationMode="None" Grid.Row="1"/>
+            <TextBlock x:Name="NotifyUser_Copy1" HorizontalAlignment="Left" Height="32" Margin="66,184,0,0" TextWrapping="Wrap" Text="PID:" VerticalAlignment="Top" Width="87" Grid.Row="1"/>
+            <TextBlock x:Name="NotifyUser_Copy2" HorizontalAlignment="Left" Height="32" Margin="66,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Grid.Row="1">
+        	<Run Text="UsagePage"/>
+            </TextBlock>
+            <TextBlock x:Name="NotifyUser_Copy3" HorizontalAlignment="Left" Height="32" Margin="66,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Grid.Row="1">
+        	<Run Text="UsageId"/>
+            </TextBlock>
+            <TextBox x:Name="tb_pid" HorizontalAlignment="Left" Height="32" Margin="171,184,0,0" TextWrapping="Wrap" Text="0x07B1" VerticalAlignment="Top" Width="103" Grid.Row="1"/>
+            <TextBox x:Name="tb_usagepageID" HorizontalAlignment="Left" Height="32" Margin="171,230,0,0" TextWrapping="Wrap" Text="0x0000" VerticalAlignment="Top" Width="103" Grid.Row="1"/>
+            <TextBox x:Name="tb_usageID" HorizontalAlignment="Left" Height="32" Margin="171,276,0,0" TextWrapping="Wrap" Text="0x0000" VerticalAlignment="Top" Width="103" RenderTransformOrigin="0.466,3.25" Grid.Row="1"/>
+            <TextBox x:Name="tb_vid" HorizontalAlignment="Left" Height="32" Margin="171,133,0,0" TextWrapping="Wrap" Text="0x045E" VerticalAlignment="Top" Width="103" RenderTransformOrigin="0.505,-1.594" Grid.Row="1"/>
+            <Button x:Name="btnEnumerateHidDevices" Content="Enumerate HID Devices" HorizontalAlignment="Left" Height="47" Margin="453,119,0,0" VerticalAlignment="Top" Width="212" Click="btnEnumerateHidDevices_Click" Grid.Row="1" Background="#9900FF00" Foreground="Red"/>
+            <TextBlock x:Name="NotifyUser_Copy4" HorizontalAlignment="Left" Height="32" Margin="66,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Text="Guid" Grid.Row="1"/>
+            <TextBox x:Name="tb_guid" HorizontalAlignment="Left" Height="32" Margin="171,331,0,0" TextWrapping="Wrap" Text="{}{0000,0000,0000,0000}" VerticalAlignment="Top" Width="313" RenderTransformOrigin="0.466,3.25" Grid.Row="1"/>
+            <Button x:Name="btnSearchForUSBDevice_" Content="Search For USB Device(vid,pid,guid)" HorizontalAlignment="Left" Height="32" Margin="417,178,0,0" VerticalAlignment="Top" Width="278" Click="btnSearchForUSBDevice_VidPidGuid_Click" Grid.Row="1"/>
+            <Button x:Name="btnSearchForUSBDeviceguid" Content="Search For USB Device(guid)" HorizontalAlignment="Left" Height="34" Margin="417,276,0,0" VerticalAlignment="Top" Width="278" Click="btnSearchForUSBDevice_Guid_Click" Grid.Row="1"/>
+            <Button x:Name="button5" Content="Search For USB Device(vid,pid)" HorizontalAlignment="Left" Height="34" Margin="417,223,0,0" VerticalAlignment="Top" Width="278" Click="btnSearchForUSBDevice_VidPid_Click" Grid.Row="1"/>
+            <Button x:Name="btnHPDesktopUSBKeyboard" Content="Set USB Keyboard" HorizontalAlignment="Left" Height="48" Margin="274,62,0,0" Grid.Row="1" VerticalAlignment="Top" Width="191" Click="btnHPDesktopUSBKeyboard_Click"/>
+            <Button x:Name="btnSetGenericUSBMouse" Content="Set USB Mouse" HorizontalAlignment="Left" Height="47" Margin="274,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="192" Click="btnSetGenericUSBMouse_Click"/>
+            <TextBlock x:Name="NotifyUser_Copy5" HorizontalAlignment="Left" Height="32" Margin="480,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" ManipulationMode="None">
+        	<Run Text="Select USB HID Class:"/>
+            </TextBlock>
+        </Grid>
+
+    </Grid>
+
+
+
+</Page>
+    
+    
+
+

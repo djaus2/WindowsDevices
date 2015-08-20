@@ -1,0 +1,81 @@
+﻿{
+  "hidUsageClasses": 
+  [
+    {
+      "PageID": 1,
+      "PageName": "Generic Desktop Controls"
+    },
+    {
+      "PageID": 2,
+      "PageName": "Simulation Controls"
+    },
+    {
+      "PageID": 3,
+      "PageName": "VR Controls"
+    },
+    {
+      "PageID": 4,
+      "PageName": "Sport Controls"
+    },
+    {
+      "PageID": 5,
+      "PageName": "Game Controls"
+    },
+    {
+      "PageID": 6,
+      "PageName": "Generic Device Controls"
+    },
+    {
+      "PageID": 7,
+      "PageName": "Keyboard/ Keypad"
+    },
+    {
+      "PageID": 8,
+      "PageName": "LEDs"
+    },
+    {
+      "PageID": 9,
+      "PageName": "Button"
+    }
+  ],
+  
+
+    "hidDeviceClasses": [
+      {
+        "UsageName": "Pointer",
+        "PageID": 1,
+        "UsageID": 1
+      },
+      {
+        "UsageName": "Mouse",
+        "PageID": 1,
+        "UsageID": 2
+      },
+      {
+        "UsageName": "Reserved",
+        "PageID": 1,
+        "UsageID": 3
+      },
+      {
+        "UsageName": "Joystick",
+        "PageID": 1,
+        "UsageID": 4
+      },
+      {
+        "UsageName": "Game Pad",
+        "PageID": 1,
+        "UsageID": 5
+      },
+      {
+        "UsageName": "Keyboard",
+        "PageID": 1,
+        "UsageID": 6
+      },
+      {
+        "UsageName": "Keypad",
+        "PageID": 1,
+        "UsageID": 7
+      }
+    ]
+  
+}
