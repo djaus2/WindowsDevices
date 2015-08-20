@@ -5,3 +5,6 @@ Windows 10 UWP (Universal) Apps for accessing devices, including on IoT. Target 
 
 1. **./DeviceWatcher**
 Dynamically enumerates all device interfaces (i.e. devices) on the system. Can apply various filters such only USB. Xaml layout is probably not suitable for phone. Like Device Manager.
+
+2. **./HIDSample**
+Enumerates USB HID devices on a system. Requires specific VID,PID, UsagePageID and UsageID. Can look up UsagePageID and UsageID for HID Device Class.
