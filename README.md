@@ -8,3 +8,7 @@ Dynamically enumerates all device interfaces (i.e. devices) on the system. Can a
 
 2. **./HIDSample**
 Enumerates USB HID devices on a system. Requires specific VID,PID, UsagePageID and UsageID. Can look up UsagePageID and UsageID for HID Device Class.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/djaus2/windowsdevices/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
